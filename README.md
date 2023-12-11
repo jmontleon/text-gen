@@ -34,6 +34,17 @@ https://github.com/redhat-na-ssa/datasci-keras-gpt2-nlp
 - Click load and wait patiently for it to finish
 - Visit the parameters page and adjust the values such as temperature, etc.
 
+### Web Interface
+A prompt such as this can be used to test on the `Default` tab.
+```
+Below is an instruction that describes a task. Write a response that appropriately completes the request:
+
+### Instruction:
+Write a python Hello World program.
+
+### Response:
+```
+
 ### API
 This is an example using curl. Be sure to replace the Bearer Token with your API Key.
 ```
