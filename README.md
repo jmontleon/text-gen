@@ -118,7 +118,7 @@ llm = ChatOpenAI(openai_api_key="$REPLACE-WITH-YOUR-API-KEY", openai_api_base="h
 - Should not need to set `LD_LIBRARY_PATH`
   - https://github.com/oobabooga/text-generation-webui/issues/4517
   - https://github.com/oobabooga/text-generation-webui/issues/4195
-- Should not need to pin Torch version and install then uninstall flash-attn
+- Should not need to pin Torch version and reinstall flash-attn
   - https://github.com/oobabooga/text-generation-webui/issues/4182
 - Unsure if we need to be pinning bitsandbytes
 - This image is impossibly monstrously large
