@@ -30,7 +30,7 @@ https://github.com/redhat-na-ssa/datasci-keras-gpt2-nlp
 - Find some models to load, maybe on https://huggingface.co/
 - Visit the models tab, download a model, like `codellama/CodeLlama-13b-hf`.
 - Select a model to load
-- Set the memory to be used for loading the model
+- Set options like `load_in_4bit` and `use_double_quant` to your liking. 
 - Click load and wait patiently for it to finish
 - Visit the parameters page and adjust the values such as temperature, etc.
 
@@ -91,6 +91,14 @@ while True:
     history.append({"role": "assistant", "content": assistant_message})
 ```
 
+To use langchain
+
+```
+from langchain.chat_models import ChatOpenAI
+
+llm = ChatOpenAI(openai_api_key="$REPLACE-WITH-YOUR-API-KEY", openai_api_base="https://text-gen-api-text-gen.apps.cluster.example.com.com/v1", streaming=True)
+```
+
 ## Known Issues
 - ~~There are no spaces between words in the outputs~~
   - ~~https://github.com/oobabooga/text-generation-webui/issues/4834~~
@@ -99,6 +107,7 @@ while True:
 - Should not need to set `LD_LIBRARY_PATH`
   - https://github.com/oobabooga/text-generation-webui/issues/4517
   - https://github.com/oobabooga/text-generation-webui/issues/4195
-- Should not need to pin Torch version
+- Should not need to pin Torch version and install then uninstall flash-attn
   - https://github.com/oobabooga/text-generation-webui/issues/4182
+- Unsure if we need to be pinning bitsandbytes
 - This image is impossibly monstrously large
