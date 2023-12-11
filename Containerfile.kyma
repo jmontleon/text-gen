@@ -1,0 +1,11 @@
+FROM quay.io/fedora/fedora:latest
+RUN dnf -y update \
+ && dnf -y install gcc git python3 python3-certifi python3-devel python3-pip python-unversioned-command \
+ && dnf clean all
+RUN git clone https://github.com/jwmatthews/kyma_poc
+RUN ln -sf kyma_poc/data data
+WORKDIR /kyma_poc/data
+RUN ./fetch.sh
+WORKDIR /kyma_poc
+RUN sed -i 's/aiohttp==3.8.6/aiohttp==3.9.0b0/g' requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
