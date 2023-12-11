@@ -5,7 +5,7 @@ RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.n
  && dnf clean all
 RUN conda create -y -n text-gen python=3.11
 RUN conda init bash
-RUN git clone https://github.com/oobabooga/text-generation-webui -b snapshot-2023-12-03
+RUN git clone https://github.com/oobabooga/text-generation-webui
 WORKDIR text-generation-webui
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "conda install -y -c 'nvidia/label/cuda-12.1.0' cuda-toolkit cuda-runtime"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir -r requirements.txt"
@@ -13,7 +13,7 @@ RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip instal
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip uninstall -y flash-attn"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir flash-attn"
-RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir bitsandbytes==0.38.1"
+RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir bitsandbytes==0.39.1"
 RUN conda clean --all
 RUN chmod 770 /root \
  && chmod -R g=u /root \

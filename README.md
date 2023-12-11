@@ -92,9 +92,9 @@ while True:
 ```
 
 ## Known Issues
-- There are no spaces between words in the outputs
-  - https://github.com/oobabooga/text-generation-webui/issues/4834
-  - Using the most recent snapshot seems to resolve this for now.
+- ~~There are no spaces between words in the outputs~~
+  - ~~https://github.com/oobabooga/text-generation-webui/issues/4834~~
+  - ~~Using the most recent snapshot seems to resolve this for now.~~
 - Only the Transformers loader works so far
 - Should not need to set `LD_LIBRARY_PATH`
   - https://github.com/oobabooga/text-generation-webui/issues/4517
