@@ -10,7 +10,7 @@ WORKDIR text-generation-webui
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "conda install -y -c 'nvidia/label/cuda-12.1.0' cuda-toolkit cuda-runtime"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir -r requirements.txt"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir -r extensions/openai/requirements.txt"
-RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118"
+RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip uninstall -y flash-attn"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir flash-attn"
 RUN conda run --no-capture-output -n text-gen /bin/bash -c "python -m pip install --no-cache-dir bitsandbytes==0.39.1"
