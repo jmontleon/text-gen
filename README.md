@@ -6,6 +6,8 @@ A container for using [text-generation-webui](https://github.com/oobabooga/text-
 To get set up an autoscaling GPU machinset on your OpenShift cluster in AWS quickly, see:
 https://github.com/redhat-na-ssa/datasci-keras-gpt2-nlp
 
+You may wish to change the instance type on the resulting machinset from the default to `g5.xlarge` for a GPU with more RAM.
+
 ## Usage
 
 ### Install
@@ -114,6 +116,10 @@ llm = ChatOpenAI(openai_api_key="$REPLACE-WITH-YOUR-API-KEY", openai_api_base="h
 - ~~There are no spaces between words in the outputs~~
   - ~~https://github.com/oobabooga/text-generation-webui/issues/4834~~
   - ~~Using the most recent snapshot seems to resolve this for now.~~
+- langchain seems to have very limited support for dealing with self-signed certificates when contacting the API endpoint
+  - Install cert-manager from the Operator Hub
+  - Starting with step 2 follow [these instructions](https://github.com/cert-manager/openshift-routes) to enable auto updating letsencrypt certs for the routes
+  - Annotate at least the API route according to the instructions
 - Only the Transformers loader works so far
 - Should not need to set `LD_LIBRARY_PATH`
   - https://github.com/oobabooga/text-generation-webui/issues/4517
